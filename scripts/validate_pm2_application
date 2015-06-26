@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Validate a supervisord-managed service is up and running.
+# Validate a PM2-managed service is up and running.
 #
 ################################################################################
 

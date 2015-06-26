@@ -1,0 +1,22 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /opt/myapp
+hooks:
+  AfterInstall:
+    - location: scripts/install_python_application
+      timeout: 1200
+      runas: myserviceuser
+  ApplicationStart:
+    - location: scripts/start_supervisord_application
+      timeout: 300
+      runas: myserviceuser
+  ApplicationStop:
+    - location: scripts/stop_supervisord_application
+      timeout: 300
+      runas: myserviceuser
+  ValidateService:
+    - location: scripts/validate_supervisord_application
+      timeout: 300
+      runas: myserviceuser
