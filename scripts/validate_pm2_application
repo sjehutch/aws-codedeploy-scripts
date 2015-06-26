@@ -13,19 +13,10 @@ set -e
 
 for proc in ${PROCESSES[@]}; do
     while true; do
-        status=$(supervisorctl status $proc)
+        status=$(pm2 status $proc)
         case "$status" in
-            *ERROR*)
-                exit 1
-                ;;
-            *FATAL*)
-                exit 1
-                ;;
-            *RUNNING*)
+            *online*)
                 exit 0
-                ;;
-            *STARTING*)
-                sleep 4
                 ;;
             *)
                 exit 1

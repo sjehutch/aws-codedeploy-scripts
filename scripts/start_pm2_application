@@ -13,14 +13,12 @@ set -e
 pushd $PKG_DIR >/dev/null
 
 # XXX Could be used to conditionally set environment here. We use 'production' NODE_ENV across the board for now.
-NODE_ENV="production"
-#if [ "$DEPLOYMENT_GROUP_NAME" == "fermina-dev" ];
-#then
-#  NODE_ENV="development"
-#fi
+NODE_ENV="${DEPLOYMENT_GROUP_ENV["$DEPLOYMENT_GROUP_NAME"]}"
 
-for proc in ${PROCESSES[@]}; do
-    NODE_ENV="$NODE_ENV" pm2 start server/app.coffee --name 'fermina'
+# NOTE: PROCESSES Should be an associative array mapping application name
+# to executable path relative to package install dir (PKG_DIR)
+for proc in ${!PROCESSES[@]}; do
+    NODE_ENV="$NODE_ENV" pm2 start "${PROCESSES["$proc"]}" --name $proc
 done
 
 popd >/dev/null
