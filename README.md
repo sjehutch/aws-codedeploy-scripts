@@ -13,8 +13,7 @@ See the [examples/](examples/) sub-directory for example appspec.yml and aws_cod
 
 ### Contribute
 
-Find this project useful? Help us make it even better by submitting any bugs or improvement suggestions you have
+**Find this project useful?** Help us make it even better by submitting any bugs or improvement suggestions you have
 as GitHub Issues and Pull Requests.
 
-Like what we're doing here? There's much more AWS and Node.js goodness where this came from,
-drop us a line if you wanna chat about potential career opportunities at Globality: careers at globality dot com
+**Like what we're doing?** There's much more AWS and Node.js goodness where this came from! drop us a line if you wanna chat about potential career opportunities at [Globality](http://www.globality.com): careers at globality dot com
