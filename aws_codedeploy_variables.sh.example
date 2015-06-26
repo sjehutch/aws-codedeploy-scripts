@@ -1,0 +1,15 @@
+#!/bin/true
+#
+# This is not an executable script, just a set of names and variable declarations.
+#
+# Use it with:
+#   source aws_codedeploy_variables.sh
+# Or:
+#   . aws_codedeploy_variables.sh
+
+# The deployed package name (e.g Python package name)
+PKG_NAME="my_package_name"
+# The base directory to which package will be installed
+PKG_DIR="/opt/my_package_dir"
+# The named processes to be started/stopped/validated as part of deployment (e.g supervisord program names)
+PROCESSES=(my_program_name)

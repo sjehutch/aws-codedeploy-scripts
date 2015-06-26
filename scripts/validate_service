@@ -1,0 +1,35 @@
+#!/bin/bash
+#
+# Validate service is up and working
+#
+################################################################################
+
+set -e
+
+# Deploy hooks are run via absolute path, so taking dirname of this script will give us the path to
+# our deploy_hooks directory.
+. $(dirname $0)/common_variables.sh
+
+
+for proc in ${PROCESSES[@]}; do
+    while true; do
+        status=$(supervisorctl status $proc)
+        case "$status" in
+            *ERROR*)
+                exit 1
+                ;;
+            *FATAL*)
+                exit 1
+                ;;
+            *RUNNING*)
+                exit 0
+                ;;
+            *STARTING*)
+                sleep 4
+                ;;
+            *)
+                exit 1
+                ;;
+        esac
+    done
+done

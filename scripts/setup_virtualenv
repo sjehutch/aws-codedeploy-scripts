@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+# Setup the Python virtualenv for the package
+#
+################################################################################
+
+set -e
+
+# Deploy hooks are run via absolute path, so taking dirname of this script will give us the path to
+# our deploy_hooks directory.
+. $(dirname $0)/common_variables.sh
+
+pushd $PKG_DIR >/dev/null
+
+if [ ! -d "venv" ];
+then
+    virtualenv $PKG_DIR/venv
+fi
+
+source $PKG_DIR/venv/bin/activate
+pip install --find-links=./ -U $PKG_NAME-*.whl
+
+popd >/dev/null
