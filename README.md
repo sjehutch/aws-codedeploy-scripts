@@ -9,7 +9,7 @@ project as a git submodule for example.
 These scripts expect a 'aws_codedeploy_variables.sh' file to be available at the project root, which they will source.
 In addition, you will need an appspec.yml AWS CodeDeploy manifest file pointing to the appropriate scripts.
 
-See the `examples/` sub-directory for example appspec.yml and aws_codedeploy_variables.sh files in various common usage scenarios.
+See the [examples/]() sub-directory for example appspec.yml and aws_codedeploy_variables.sh files in various common usage scenarios.
 
 ### Contribute
 
