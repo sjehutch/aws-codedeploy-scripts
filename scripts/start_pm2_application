@@ -8,17 +8,17 @@ set -e
 
 # Deploy hooks are run via absolute path, so taking dirname of this script will give us the path to
 # our deploy_hooks directory.
-. ../$(dirname $0)/aws_codedeploy_variables.sh
+. ../"$(dirname "$0")"/aws_codedeploy_variables.sh
 
-pushd $PKG_DIR >/dev/null
+pushd "$PKG_DIR" >/dev/null
 
 # XXX Could be used to conditionally set environment here. We use 'production' NODE_ENV across the board for now.
 NODE_ENV="${DEPLOYMENT_GROUP_ENV["$DEPLOYMENT_GROUP_NAME"]}"
 
 # NOTE: PROCESSES Should be an associative array mapping application name
 # to executable path relative to package install dir (PKG_DIR)
-for proc in ${!PROCESSES[@]}; do
-    NODE_ENV="$NODE_ENV" pm2 start "${PROCESSES["$proc"]}" --name $proc
+for proc in "${!PROCESSES[@]}"; do
+    NODE_ENV="$NODE_ENV" pm2 start "${PROCESSES["$proc"]}" --name "$proc"
 done
 
 popd >/dev/null
