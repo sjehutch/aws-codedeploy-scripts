@@ -17,3 +17,7 @@ See the [examples/](examples/) sub-directory for example appspec.yml and aws_cod
 as GitHub Issues and Pull Requests.
 
 **Like what we're doing?** There's much more AWS and Node.js goodness where this came from! drop us a line if you wanna chat about potential career opportunities at [Globality](http://www.globality.com): careers at globality dot com
+
+## License
+
+MIT License. See accompanying [LICENSE.txt](LICENSE.txt) file.
