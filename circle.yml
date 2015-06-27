@@ -1,0 +1,9 @@
+dependencies:
+  override:
+    - sudo add-apt-repository -y "deb http://mirrors.kernel.org/ubuntu utopic main universe"
+    - sudo apt-get -y update
+    - sudo apt-get -y install shellcheck
+
+test:
+  override:
+    - shellcheck scripts/*
