@@ -12,7 +12,6 @@ set -e
 
 pushd "$PKG_DIR" >/dev/null
 
-# XXX Could be used to conditionally set environment here. We use 'production' NODE_ENV across the board for now.
 NODE_ENV="${DEPLOYMENT_GROUP_ENV["$DEPLOYMENT_GROUP_NAME"]}"
 
 # NOTE: PROCESSES Should be an associative array mapping application name
